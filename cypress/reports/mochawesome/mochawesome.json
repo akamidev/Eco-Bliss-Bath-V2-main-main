@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-22T19:25:03.478Z",
+    "end": "2025-07-22T19:25:09.223Z",
+    "duration": 5745,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "33dc7937-fbf9-41ff-8cbb-fd69961c1363",
+      "title": "",
+      "fullFile": "cypress\\e2e\\1-login.cy.js",
+      "file": "cypress\\e2e\\1-login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1a6df276-e257-45a2-823b-b8a029d3502f",
+          "title": "Connexion utilisateur",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devrait se connecter avec succès",
+              "fullTitle": "Connexion utilisateur devrait se connecter avec succès",
+              "timedOut": null,
+              "duration": 3592,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"POST\", \"**/login\").as(\"loginRequest\"); // Intercepte la requête POST de login pour pouvoir l'attendre.\ncy.get('[data-cy=\"login-input-username\"]').type(\"test2@test.fr\"); // Saisie de l'email.\ncy.get('[data-cy=\"login-input-password\"]').type(\"testtest\"); // Saisie du mot de passe.\ncy.get('[data-cy=\"login-submit\"]').click(); // Soumission du formulaire.\n// Attendre la réponse de l’API de login avant de vérifier le DOM\ncy.wait(\"@loginRequest\");\n// Vérifie que la redirection a bien été faite et que l'utilisateur est connecté\ncy.get('[data-cy=\"nav-link-cart\"]').should(\"be.visible\"); // Vérifie que le lien vers le panier est visible (signe de connexion réussie).",
+              "err": {},
+              "uuid": "cebaf422-4408-4978-a529-ca4b9750678f",
+              "parentUUID": "1a6df276-e257-45a2-823b-b8a029d3502f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "devrait afficher un message d'erreur si mauvais identifiants",
+              "fullTitle": "Connexion utilisateur devrait afficher un message d'erreur si mauvais identifiants",
+              "timedOut": null,
+              "duration": 1916,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"POST\", \"**/login\").as(\"loginRequest\"); // Intercepte la requête POST de login.\ncy.get('[data-cy=\"login-input-username\"]').type(\"test2@test.fr\"); // Saisie de l'email.\ncy.get('[data-cy=\"login-input-password\"]').type(\"wrongpassword\"); // Saisie d'un mauvais mot de passe.\ncy.get('[data-cy=\"login-submit\"]').click(); // Soumission du formulaire.\ncy.wait(\"@loginRequest\"); // Attend la réponse de l'API.\ncy.get('[data-cy=\"login-errors\"]').should(\"contain\", \"Identifiants incorrects\"); // Vérifie que le message d'erreur s'affiche.",
+              "err": {},
+              "uuid": "ddcc7380-4134-4249-8ab5-9c29238328b3",
+              "parentUUID": "1a6df276-e257-45a2-823b-b8a029d3502f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cebaf422-4408-4978-a529-ca4b9750678f",
+            "ddcc7380-4134-4249-8ab5-9c29238328b3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5508,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

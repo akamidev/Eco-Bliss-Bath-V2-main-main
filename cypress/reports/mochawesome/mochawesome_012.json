@@ -1,0 +1,145 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-22T19:27:08.712Z",
+    "end": "2025-07-22T19:27:10.115Z",
+    "duration": 1403,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b48517ac-17f9-4a06-b6f2-f4fd38644a9e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiLogin.cy.js",
+      "file": "cypress\\e2e\\apiLogin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "should fail to login with wrong credentials",
+          "fullTitle": "should fail to login with wrong credentials",
+          "timedOut": null,
+          "duration": 258,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const fakeEmail = _faker.faker.internet.email(); // Génère un email aléatoire.\nconst fakePassword = _faker.faker.internet.password(); // Génère un mot de passe aléatoire.\ncy.request({\n  method: \"POST\",\n  url: apiLogin,\n  body: {\n    username: fakeEmail,\n    password: fakePassword\n  },\n  failOnStatusCode: false // Permet de capturer la réponse même si le code est une erreur.\n}).then(response => {\n  expect(response.status).to.eq(401); // Vérifie que le serveur retourne une erreur 401.\n  expect(response.body.message).to.include(\"Invalid credentials\"); // Vérifie le message d'erreur.\n});",
+          "err": {},
+          "uuid": "7654ac7d-14b4-4039-8179-a7cc8c095b4e",
+          "parentUUID": "b48517ac-17f9-4a06-b6f2-f4fd38644a9e",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "should fail to login if the JSON format is invalid",
+          "fullTitle": "should fail to login if the JSON format is invalid",
+          "timedOut": null,
+          "duration": 178,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.request({\n  method: \"POST\",\n  url: apiLogin,\n  body: \"{badJson:true}\",\n  // Envoie un corps de requête JSON invalide.\n  headers: {\n    \"Content-Type\": \"application/json\"\n  },\n  failOnStatusCode: false // Permet de capturer la réponse même si le code est une erreur.\n}).then(response => {\n  expect(response.status).to.eq(400); // Vérifie que le serveur retourne une erreur 400.\n});",
+          "err": {},
+          "uuid": "159a6977-cf23-49ca-8afe-b010029904d0",
+          "parentUUID": "b48517ac-17f9-4a06-b6f2-f4fd38644a9e",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "255ffed5-e136-4b2f-8f19-6e0581b2b039",
+          "title": "POST /login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should login successfully",
+              "fullTitle": "POST /login should login successfully",
+              "timedOut": null,
+              "duration": 809,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"POST\",\n  url: apiLogin,\n  body: {\n    username: \"test2@test.fr\",\n    password: \"testtest\"\n  },\n  failOnStatusCode: true // Le test échoue si le serveur retourne une erreur HTTP.\n}).then(response => {\n  expect(response.status).to.eq(200); // Vérifie que la connexion est réussie.\n  expect(response.body).to.have.property(\"token\"); // Vérifie que le token est présent dans la réponse.\n});",
+              "err": {},
+              "uuid": "bae2ecc2-ca8a-47b3-a751-acac5817575f",
+              "parentUUID": "255ffed5-e136-4b2f-8f19-6e0581b2b039",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bae2ecc2-ca8a-47b3-a751-acac5817575f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 809,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [
+        "7654ac7d-14b4-4039-8179-a7cc8c095b4e",
+        "159a6977-cf23-49ca-8afe-b010029904d0"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 436,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

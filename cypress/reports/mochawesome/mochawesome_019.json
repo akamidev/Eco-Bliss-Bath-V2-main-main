@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-22T19:39:07.156Z",
+    "end": "2025-07-22T19:39:08.527Z",
+    "duration": 1371,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3199d8a6-a02c-4d83-a804-6bf6be1babd1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\4-smokeConnexion.cy.js",
+      "file": "cypress\\e2e\\4-smokeConnexion.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f9a02960-28a1-47b6-8839-f568b2222c1e",
+          "title": "Vérification des champs connexion",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "devrait vérifier les champs présents sur la page de connexion",
+              "fullTitle": "Vérification des champs connexion devrait vérifier les champs présents sur la page de connexion",
+              "timedOut": null,
+              "duration": 1294,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/#/login\"); // Accède à la page de connexion.\ncy.get('[data-cy=\"login-input-username\"]').should(\"exist\"); // Vérifie que le champ email est présent.\ncy.get('[data-cy=\"login-input-password\"]').should(\"exist\"); // Vérifie que le champ mot de passe est présent.\ncy.get('[data-cy=\"login-submit\"]').should(\"exist\"); // Vérifie que le bouton de soumission est présent.\ncy.get('a[href=\"#/register\"]').should(\"exist\"); // Vérifie la présence du lien vers la page d'inscription.",
+              "err": {},
+              "uuid": "884d08ea-4d03-425a-a97f-f3f1ae002a94",
+              "parentUUID": "f9a02960-28a1-47b6-8839-f568b2222c1e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "884d08ea-4d03-425a-a97f-f3f1ae002a94"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1294,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

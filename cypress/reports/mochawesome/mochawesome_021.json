@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-22T19:39:19.379Z",
+    "end": "2025-07-22T19:39:21.671Z",
+    "duration": 2292,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "08900b51-5103-45de-af61-aa1611c57aca",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiChangeQuantity.cy.js",
+      "file": "cypress\\e2e\\apiChangeQuantity.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "67c20ed4-8e4e-4a9e-9e14-5814937f70ff",
+          "title": "PUT /orders/add - Modifier la quantité d'un produit au pannier",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait ajouter un produit au panier avec success",
+              "fullTitle": "PUT /orders/add - Modifier la quantité d'un produit au pannier Devrait ajouter un produit au panier avec success",
+              "timedOut": null,
+              "duration": 1082,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"PUT\",\n  url: apiUrl + \"/orders/add\",\n  headers: {\n    Authorization: \"Bearer \" + token\n  },\n  body: {\n    product: 9,\n    quantity: 1\n  }\n}).then(response => {\n  // Vérifie que la requête est réussie.\n  expect(response.status).to.eq(200);\n  // Vérifie que la réponse contient un tableau 'orderLines'.\n  expect(response.body).to.have.property(\"orderLines\").and.to.be.an(\"array\");\n  // Récupère l'identifiant de la ligne de commande ajoutée.\n  orderLineId = response.body.orderLines[0].id;\n  // Vérifie que l'identifiant est bien un nombre.\n  expect(orderLineId).to.be.a(\"number\");\n});",
+              "err": {},
+              "uuid": "02ef1fc4-9c9e-4691-9ed3-65d435904b76",
+              "parentUUID": "67c20ed4-8e4e-4a9e-9e14-5814937f70ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Devrait modifier la quantité d produit au panier avec success",
+              "fullTitle": "PUT /orders/add - Modifier la quantité d'un produit au pannier Devrait modifier la quantité d produit au panier avec success",
+              "timedOut": null,
+              "duration": 240,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"PUT\",\n  url: `${apiUrl}/orders/${orderLineId}/change-quantity`,\n  headers: {\n    Authorization: \"Bearer \" + token\n  },\n  body: {\n    quantity: 2\n  }\n}).then(response => {\n  // Vérifie que la requête est réussie.\n  expect(response.status).to.eq(200);\n  // Vérifie que la réponse contient un tableau 'orderLines'.\n  expect(response.body).to.have.property(\"orderLines\").and.to.be.an(\"array\");\n  // Recherche la ligne de commande modifiée dans la réponse.\n  const updatedLine = response.body.orderLines.find(line => line.id === orderLineId);\n  // Vérifie que la quantité a bien été modifiée (supérieure à 1).\n  expect(updatedLine).to.have.property(\"quantity\").and.to.be.a(\"number\").and.to.be.greaterThan(1);\n});",
+              "err": {},
+              "uuid": "ae3b2580-1d21-474f-9ec6-b90fdacf1802",
+              "parentUUID": "67c20ed4-8e4e-4a9e-9e14-5814937f70ff",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "02ef1fc4-9c9e-4691-9ed3-65d435904b76",
+            "ae3b2580-1d21-474f-9ec6-b90fdacf1802"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1322,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "b14d050b-a908-4649-baa8-b8cf6a311ae0",
+          "title": "PUT /orders/${orderLineId}/change-quantity ajouter un produit inexistante au pannier",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait envoyer un 404 car produit non trouvé",
+              "fullTitle": "PUT /orders/${orderLineId}/change-quantity ajouter un produit inexistante au pannier Devrait envoyer un 404 car produit non trouvé",
+              "timedOut": null,
+              "duration": 905,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const fakeOrderLineId = 999999; // Identifiant fictif qui n'existe pas.\ncy.request({\n  method: \"PUT\",\n  url: `${apiUrl}/orders/${fakeOrderLineId}/change-quantity`,\n  headers: {\n    Authorization: \"Bearer \" + token,\n    Accept: \"application/json\"\n  },\n  body: {\n    quantity: 2\n  },\n  failOnStatusCode: false // Permet de gérer les erreurs HTTP sans faire échouer le test.\n}).then(response => {\n  // Vérifie que le serveur retourne bien une erreur 404.\n  expect(response.status).to.eq(404);\n  // Vérifie que le message d'erreur contient \"Produit non trouvé\".\n  if (typeof response.body === \"string\") {\n    expect(response.body).to.include(\"Produit non trouvé\");\n  }\n});",
+              "err": {},
+              "uuid": "222aa242-ba25-4764-8b2b-67c7d24ae68c",
+              "parentUUID": "b14d050b-a908-4649-baa8-b8cf6a311ae0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "222aa242-ba25-4764-8b2b-67c7d24ae68c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 905,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

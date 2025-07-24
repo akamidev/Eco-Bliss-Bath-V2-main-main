@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-22T19:39:23.543Z",
+    "end": "2025-07-22T19:39:25.796Z",
+    "duration": 2253,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ac08b4e9-6eed-473f-8050-1a55c80dfab7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiDeleteOrders.cy.js",
+      "file": "cypress\\e2e\\apiDeleteOrders.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6ff1b42c-fd82-47af-a4aa-6663b7d6774e",
+          "title": "DELETE /orders/{id}/delete - supprimer un produit du panier",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait ajouter un produit au panier avec success",
+              "fullTitle": "DELETE /orders/{id}/delete - supprimer un produit du panier Devrait ajouter un produit au panier avec success",
+              "timedOut": null,
+              "duration": 1061,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"PUT\",\n  url: apiUrl + \"/orders/add\",\n  headers: {\n    Authorization: \"Bearer \" + token\n  },\n  body: {\n    product: 6,\n    quantity: 1\n  }\n}).then(response => {\n  // Vérifie que la requête est réussie.\n  expect(response.status).to.eq(200);\n  // Vérifie que la réponse contient un tableau 'orderLines'.\n  expect(response.body).to.have.property(\"orderLines\").and.to.be.an(\"array\");\n  // Récupère l'identifiant de la ligne de commande ajoutée.\n  orderLineId = response.body.orderLines[0].id;\n  // Vérifie que l'identifiant est bien un nombre.\n  expect(orderLineId).to.be.a(\"number\");\n});",
+              "err": {},
+              "uuid": "96c83198-1dd0-419b-a2b6-3331d588a427",
+              "parentUUID": "6ff1b42c-fd82-47af-a4aa-6663b7d6774e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Devrait supprimer un produit du panier avec success",
+              "fullTitle": "DELETE /orders/{id}/delete - supprimer un produit du panier Devrait supprimer un produit du panier avec success",
+              "timedOut": null,
+              "duration": 214,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"DELETE\",\n  url: `${apiUrl}/orders/${orderLineId}/delete`,\n  headers: {\n    Authorization: \"Bearer \" + token,\n    Accept: \"application/json\"\n  },\n  body: {\n    //s’il y a un body\n  }\n}).then(response => {\n  // Vérifie que la requête est réussie.\n  expect(response.status).to.eq(200);\n  // Vérifie que le message de retour contient \"Produit supprimé\".\n  if (typeof response.body === \"string\") {\n    expect(response.body).to.include(\"Produit supprimé\");\n  }\n});",
+              "err": {},
+              "uuid": "216c011d-c8fd-47a1-ab5b-632dbf15c595",
+              "parentUUID": "6ff1b42c-fd82-47af-a4aa-6663b7d6774e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "96c83198-1dd0-419b-a2b6-3331d588a427",
+            "216c011d-c8fd-47a1-ab5b-632dbf15c595"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1275,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "b7e1095a-0dce-4d83-9bf2-86129832494e",
+          "title": "DELETE /orders/{id}/delete - supprimer un produit du panier inexistante",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait envoyer un 404 car produit non trouvé",
+              "fullTitle": "DELETE /orders/{id}/delete - supprimer un produit du panier inexistante Devrait envoyer un 404 car produit non trouvé",
+              "timedOut": null,
+              "duration": 919,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const fakeOrderLineId = 999999; // Identifiant fictif qui n'existe pas.\ncy.request({\n  method: \"DELETE\",\n  url: `${apiUrl}/orders/${fakeOrderLineId}/delete`,\n  headers: {\n    Authorization: \"Bearer \" + token,\n    Accept: \"application/json\"\n  },\n  body: {\n    //s’il y a un body\n  },\n  failOnStatusCode: false // Permet de gérer les erreurs HTTP sans faire échouer le test.\n}).then(response => {\n  // Vérifie que le serveur retourne bien une erreur 404.\n  expect(response.status).to.eq(404);\n  // Vérifie que le message d'erreur contient \"Produit non trouvé\".\n  if (typeof response.body === \"string\") {\n    expect(response.body).to.include(\"Produit non trouvé\");\n  }\n});",
+              "err": {},
+              "uuid": "1c31cfae-28bf-4228-8e55-80cab667de0b",
+              "parentUUID": "b7e1095a-0dce-4d83-9bf2-86129832494e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1c31cfae-28bf-4228-8e55-80cab667de0b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 919,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

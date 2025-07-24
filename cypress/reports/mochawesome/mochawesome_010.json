@@ -1,0 +1,222 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-22T19:26:48.898Z",
+    "end": "2025-07-22T19:26:52.397Z",
+    "duration": 3499,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cbcb5f17-624d-4160-b4c2-76ec170d4d6a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiGetReviews.cy.js",
+      "file": "cypress\\e2e\\apiGetReviews.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "91167323-c133-4125-a1af-cfc38ec5ef8b",
+          "title": "GET / Reviews",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait retourner un 200 avec la liste des avis",
+              "fullTitle": "GET / Reviews Devrait retourner un 200 avec la liste des avis",
+              "timedOut": null,
+              "duration": 592,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: apiUrl + \"/reviews\",\n  headers: {\n    Accept: \"application/json\"\n  }\n}).then(response => {\n  expect(response.status).to.eq(200); // Vérifie que la requête est réussie\n  expect(response.body).to.be.an(\"array\"); // Vérifie que la réponse est un tableau\n  expect(response.body.length).to.be.greaterThan(0); // Vérifie qu'il y a au moins un avis\n  // Vérifie les propriétés de chaque avis\n  response.body.forEach(review => {\n    expect(review).to.include.keys(\"date\", \"title\", \"comment\", \"rating\", \"author\");\n    expect(review.date).to.be.a(\"string\");\n    expect(review.title).to.be.a(\"string\");\n    expect(review.comment).to.be.a(\"string\");\n    expect(review.rating).to.be.a(\"number\");\n    expect(review.author).to.be.an(\"object\");\n    expect(review.author).to.include.keys(\"firstname\", \"lastname\", \"email\");\n  });\n});",
+              "err": {},
+              "uuid": "d41bba6f-45ed-4b70-a6c9-4a76c6e6de84",
+              "parentUUID": "91167323-c133-4125-a1af-cfc38ec5ef8b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d41bba6f-45ed-4b70-a6c9-4a76c6e6de84"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 592,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "98481c3c-9f10-4310-a6f5-f2bc88415773",
+          "title": "POST /Login to create a review",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait créer un avis avec succès",
+              "fullTitle": "POST /Login to create a review Devrait créer un avis avec succès",
+              "timedOut": null,
+              "duration": 1115,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const reviewData = {\n  title: _faker.faker.lorem.sentence(),\n  comment: _faker.faker.lorem.paragraph(),\n  rating: _faker.faker.number.int({\n    min: 1,\n    max: 5\n  })\n};\ncy.request({\n  method: \"POST\",\n  url: apiUrl + \"/reviews\",\n  headers: {\n    Authorization: \"Bearer \" + token,\n    Accept: \"application/json\"\n  },\n  body: reviewData\n}).then(response => {\n  expect(response.status).to.eq(200); // Vérifie que la création est réussie\n  expect(response.body).to.be.an(\"object\"); // Vérifie que la réponse est un objet\n  expect(response.body).to.include.keys(\"id\", \"date\", \"title\", \"comment\", \"author\");\n  expect(response.body.author).to.be.an(\"object\");\n  expect(response.body.author).to.include.keys(\"id\", \"email\");\n});",
+              "err": {},
+              "uuid": "7ed57658-9e62-4ec0-8e08-3c83b28a6cc3",
+              "parentUUID": "98481c3c-9f10-4310-a6f5-f2bc88415773",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7ed57658-9e62-4ec0-8e08-3c83b28a6cc3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1115,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "c347dba2-a621-4d22-ad39-afc5d41e2184",
+          "title": "POST/ erreur 400 donnés invalides",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait retourner une erreur 400 si les données sont invalides",
+              "fullTitle": "POST/ erreur 400 donnés invalides Devrait retourner une erreur 400 si les données sont invalides",
+              "timedOut": null,
+              "duration": 1370,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const invalidReview = {\n  comment: _faker.faker.lorem.paragraph(),\n  rating: 50\n};\ncy.request({\n  method: \"POST\",\n  url: apiUrl + \"/reviews\",\n  headers: {\n    Authorization: \"Bearer \" + token,\n    Accept: \"application/json\"\n  },\n  body: invalidReview,\n  failOnStatusCode: false // Permet de capturer l'erreur 400\n}).then(response => {\n  expect(response.status).to.eq(400); // Vérifie que le serveur retourne une erreur 400\n  if (typeof response.body === \"string\") {\n    expect(response.body).to.include(\"Erreur dans les données envoyées\");\n  }\n});",
+              "err": {},
+              "uuid": "7deade1b-fd7f-4702-bc45-8dd813a1671f",
+              "parentUUID": "c347dba2-a621-4d22-ad39-afc5d41e2184",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7deade1b-fd7f-4702-bc45-8dd813a1671f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1370,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "d2ea5fee-d358-4250-881c-f3792d1f5039",
+          "title": "POST /review sans authentification",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return Error: Unauthorized",
+              "fullTitle": "POST /review sans authentification should return Error: Unauthorized",
+              "timedOut": null,
+              "duration": 191,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"POST\",\n  url: apiUrl + \"/reviews\",\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(401); // Vérifie que le serveur retourne une erreur 401\n  if (typeof response.body === \"string\") {\n    expect(response.body).to.include(\"Unauthorized\");\n  }\n});",
+              "err": {},
+              "uuid": "0b05cc15-466b-4885-ae4b-98e11bf7da82",
+              "parentUUID": "d2ea5fee-d358-4250-881c-f3792d1f5039",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0b05cc15-466b-4885-ae4b-98e11bf7da82"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 191,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

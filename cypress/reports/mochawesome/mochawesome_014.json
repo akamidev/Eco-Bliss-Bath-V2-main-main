@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-22T19:27:30.884Z",
+    "end": "2025-07-22T19:27:32.105Z",
+    "duration": 1221,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dd502140-9b64-473a-bf9a-c383fc61cd36",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiPostRegister.cy.js",
+      "file": "cypress\\e2e\\apiPostRegister.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e13da640-e186-47a3-9242-449b2dc8c087",
+          "title": "Creer un utilisateur avec succès",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait créer un utilisateur avec succès",
+              "fullTitle": "Creer un utilisateur avec succès Devrait créer un utilisateur avec succès",
+              "timedOut": null,
+              "duration": 808,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Génère des données factices pour l'utilisateur\nconst fakeEmail = _faker.faker.internet.email();\nconst fakeFirstName = _faker.faker.person.firstName();\nconst fakeLastName = _faker.faker.person.lastName();\nconst fakePassword = _faker.faker.internet.password();\n// Envoie une requête POST pour créer un nouvel utilisateur\ncy.request({\n  method: \"POST\",\n  url: apiUrl + \"/register\",\n  body: {\n    email: fakeEmail,\n    firstname: fakeFirstName,\n    lastname: fakeLastName,\n    plainPassword: {\n      first: fakePassword,\n      second: fakePassword\n    }\n  }\n}).then(response => {\n  expect(response.status).to.eq(200); // Vérifie que la création est réussie\n  if (typeof response.body === \"string\") {\n    expect(response.body).to.include(\"Informations de l'utilisateur inscrit\"); // Vérifie que le message de succès est présent\n  }\n});",
+              "err": {},
+              "uuid": "4992f9ef-2d00-442d-860f-c2504f9e0bed",
+              "parentUUID": "e13da640-e186-47a3-9242-449b2dc8c087",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4992f9ef-2d00-442d-860f-c2504f9e0bed"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 808,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "e916a644-881e-4902-8b75-1a84e92173a3",
+          "title": "Erreur dans les donnés envoyés",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait retourner un erreu car donnés invalides",
+              "fullTitle": "Erreur dans les donnés envoyés Devrait retourner un erreu car donnés invalides",
+              "timedOut": null,
+              "duration": 297,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Génère des données invalides pour l'utilisateur (email non valide et mots de passe différents)\nconst fakeEmail = _faker.faker.lorem.sentence();\nconst fakeFirstName = _faker.faker.person.firstName();\nconst fakeLastName = _faker.faker.person.lastName();\nconst fakePassword = _faker.faker.internet.password();\n// Envoie une requête POST avec des données invalides\ncy.request({\n  method: \"POST\",\n  url: apiUrl + \"/register\",\n  body: {\n    email: fakeEmail,\n    firstname: fakeFirstName,\n    lastname: fakeLastName,\n    plainPassword: {\n      first: \"120440\",\n      // Mot de passe différent\n      second: fakePassword\n    }\n  },\n  failOnStatusCode: false // Permet de continuer même si le statut n'est pas 2xx\n}).then(response => {\n  expect(response.status).to.eq(400); // Vérifie que le serveur retourne une erreur 400\n  expect(response.body).to.have.property(\"email\"); // Vérifie la présence d'une erreur sur l'email\n  expect(response.body.email[0]).to.include(\"not a valid email\"); // Vérifie le message d'erreur sur l'email\n  // Vérifie que l'erreur sur plainPassword.first existe\n  expect(response.body).to.have.nested.property(\"plainPassword.first[0]\"); //permet de cibler une propriété imbriquée dans un objet complexe.\n  expect(response.body.plainPassword.first[0]).to.include(\"correspondre\"); // Vérifie le message d'erreur sur le mot de passe\n});",
+              "err": {},
+              "uuid": "1fe4cf54-4700-45e3-bf03-4a5b951c23e7",
+              "parentUUID": "e916a644-881e-4902-8b75-1a84e92173a3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1fe4cf54-4700-45e3-bf03-4a5b951c23e7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 297,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

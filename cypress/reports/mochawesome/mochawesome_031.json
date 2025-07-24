@@ -1,0 +1,171 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 2,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-07-22T19:40:15.821Z",
+    "end": "2025-07-22T19:40:20.614Z",
+    "duration": 4793,
+    "testsRegistered": 4,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "95019e75-299f-4c37-a4e5-73b3bdb1ea5e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiPutOrders.cy.js",
+      "file": "cypress\\e2e\\apiPutOrders.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e2302a9c-636d-4ae1-96fe-fe9914bab833",
+          "title": "PUT /orders/add - Ajouter un produit au panier",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Devrait ajouter un produit au panier avec succès",
+              "fullTitle": "PUT /orders/add - Ajouter un produit au panier Devrait ajouter un produit au panier avec succès",
+              "timedOut": null,
+              "duration": 1273,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productId = 5;\ncy.request({\n  method: \"PUT\",\n  url: `${apiUrl}/orders/add`,\n  headers: {\n    Authorization: \"Bearer \" + token\n  },\n  body: {\n    product: productId,\n    quantity: 1\n  }\n}).then(response => {\n  // Vérifie que la requête est réussie.\n  expect(response.status).to.eq(200);\n  // Vérifie que la réponse contient un tableau 'orderLines'.\n  expect(response.body).to.have.property(\"orderLines\").and.to.be.an(\"array\");\n  // Vérifie que chaque orderline a une quantité supérieure à 0.\n  response.body.orderLines.forEach(line => {\n    expect(line).to.have.property(\"quantity\").and.to.be.a(\"number\").and.to.be.greaterThan(0);\n  });\n});",
+              "err": {},
+              "uuid": "b693d3d0-cf2e-428a-a4b4-6fa989e6767a",
+              "parentUUID": "e2302a9c-636d-4ae1-96fe-fe9914bab833",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ne devrait pas permettre d’ajouter un produit en rupture de stock (0 ou négatif)",
+              "fullTitle": "PUT /orders/add - Ajouter un produit au panier ne devrait pas permettre d’ajouter un produit en rupture de stock (0 ou négatif)",
+              "timedOut": null,
+              "duration": 1120,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const productId = 3; // Produit avec stock négatif\ncy.request({\n  method: \"GET\",\n  url: `${apiUrl}/products/${productId}`,\n  headers: {\n    Authorization: \"Bearer \" + token\n  },\n  failOnStatusCode: false\n}).then(res => {\n  // Vérifie que le stock est bien à 0 ou négatif.\n  const stock = res.body.availableStock;\n  expect(stock).to.be.at.most(0);\n  // Tente d'ajouter le produit au panier.\n  cy.request({\n    method: \"PUT\",\n    url: `${apiUrl}/orders/add`,\n    headers: {\n      Authorization: \"Bearer \" + token\n    },\n    body: {\n      product: productId,\n      quantity: 1\n    },\n    failOnStatusCode: false // Permet de capturer l'erreur sans faire échouer le test.\n  }).then(res => {\n    // Vérifie que le serveur refuse la requête (code différent de 200).\n    expect(res.status).to.not.eq(200);\n  });\n});",
+              "err": {
+                "message": "AssertionError: expected 200 to not equal 200",
+                "estack": "AssertionError: expected 200 to not equal 200\n    at Context.eval (webpack:///./cypress/e2e/apiPutOrders.cy.js:114:34)\n    at getRet (http://localhost:4200/__cypress/runner/cypress_runner.js:120949:20)\n    at tryCatcher (http://localhost:4200/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:4200/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:4200/__cypress/runner/cypress_runner.js:120960:66)\n    at Context.then (http://localhost:4200/__cypress/runner/cypress_runner.js:121211:21)",
+                "diff": ""
+              },
+              "uuid": "9737686e-ada5-42c2-b2ca-af9f92d55ccd",
+              "parentUUID": "e2302a9c-636d-4ae1-96fe-fe9914bab833",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ne devrait pas permettre d’ajouter une quantité supérieure à la disponibilité",
+              "fullTitle": "PUT /orders/add - Ajouter un produit au panier ne devrait pas permettre d’ajouter une quantité supérieure à la disponibilité",
+              "timedOut": null,
+              "duration": 1377,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const productId = 10;\ncy.request({\n  method: \"GET\",\n  url: `${apiUrl}/products/${productId}`,\n  headers: {\n    Authorization: \"Bearer \" + token\n  },\n  failOnStatusCode: false\n}).then(res => {\n  // Vérifie que le stock est positif.\n  const stock = res.body.availableStock;\n  expect(stock).to.be.a(\"number\").and.to.be.greaterThan(0);\n  const excessiveQuantity = stock + 2; // Définit une quantité excessive (supérieure au stock).\n  // Tente d'ajouter cette quantité au panier.\n  cy.request({\n    method: \"PUT\",\n    url: `${apiUrl}/orders/add`,\n    headers: {\n      Authorization: \"Bearer \" + token\n    },\n    body: {\n      product: productId,\n      quantity: excessiveQuantity\n    },\n    failOnStatusCode: false\n  }).then(res => {\n    // Vérifie que le serveur refuse la requête (code différent de 200).\n    expect(res.status).to.not.eq(200);\n  });\n});",
+              "err": {
+                "message": "AssertionError: expected -2 to be above 0",
+                "estack": "AssertionError: expected -2 to be above 0\n    at Context.eval (webpack:///./cypress/e2e/apiPutOrders.cy.js:132:48)\n    at getRet (http://localhost:4200/__cypress/runner/cypress_runner.js:120949:20)\n    at tryCatcher (http://localhost:4200/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:4200/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:4200/__cypress/runner/cypress_runner.js:120960:66)\n    at Context.then (http://localhost:4200/__cypress/runner/cypress_runner.js:121211:21)",
+                "diff": null
+              },
+              "uuid": "de263c64-289a-4cbc-bc11-5d9c877c6658",
+              "parentUUID": "e2302a9c-636d-4ae1-96fe-fe9914bab833",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ne devrait pas permettre l’ajout d’une quantité négative",
+              "fullTitle": "PUT /orders/add - Ajouter un produit au panier ne devrait pas permettre l’ajout d’une quantité négative",
+              "timedOut": null,
+              "duration": 849,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productId = 9;\ncy.request({\n  method: \"PUT\",\n  url: `${apiUrl}/orders/add`,\n  headers: {\n    Authorization: `Bearer ${token}`\n  },\n  body: {\n    product: productId,\n    quantity: -3\n  },\n  failOnStatusCode: false\n}).then(res => {\n  // Vérifie que le serveur retourne une erreur (code >= 400).\n  expect(res.status).to.be.gte(400);\n});",
+              "err": {},
+              "uuid": "f4a5b0f6-ed41-4010-984d-39b6c8860f95",
+              "parentUUID": "e2302a9c-636d-4ae1-96fe-fe9914bab833",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b693d3d0-cf2e-428a-a4b4-6fa989e6767a",
+            "f4a5b0f6-ed41-4010-984d-39b6c8860f95"
+          ],
+          "failures": [
+            "9737686e-ada5-42c2-b2ca-af9f92d55ccd",
+            "de263c64-289a-4cbc-bc11-5d9c877c6658"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4619,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

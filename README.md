@@ -43,11 +43,13 @@ Ce projet constitue une plateforme de tests automatisés pour l'application e-co
 
 ## � Démonstration
 
-Cliquez sur l'image ci-dessous pour visionner la vidéo de démonstration de mon projet **ECO-BLISS-BATH** :
+Cliquez sur l'image ci-dessous pour accéder à la page de démonstration interactive de mon projet **ECO-BLISS-BATH** :
 
-<a href="./Cypress1024.mp4">
-<img src="https://via.placeholder.com/800x400/DD0031/ffffff?text=🎬+Eco-Bliss-Bath+Demo+▶️+Tests+Cypress" alt="Aperçu de la vidéo de démonstration" width="800">
+<a href="./index.html">
+<img src="https://via.placeholder.com/800x400/121212/ff4081?text=🎬+Eco-Bliss-Bath+Demo+▶️+Page+Interactive" alt="Accéder à la démonstration interactive" width="800">
 </a>
+
+📺 **Page de démonstration :** `index.html` - Interface interactive avec lecteur vidéo intégré
 > La vidéo présente :
 > - 🐳 Démarrage de l'environnement Docker
 > - 🅰️ Lancement du frontend Angular

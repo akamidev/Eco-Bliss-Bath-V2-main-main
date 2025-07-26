@@ -1,21 +1,4 @@
-# Projet Eco-Bliss-Bath V2## 🎬 Démonstration
-
-[![Démonstration Eco-Bliss-Bath](https://img.shields.io/badge/📽️%20Voir%20la%20Démonstration-Vidéo%20Locale-4A90E2?style=for-the-badge&logo=video&logoColor=white)](./Cypress1024.mp4)
-
-> **🎥 Cliquez sur le badge ci-dessus pour voir la démonstration complète du projet**
-> 
-> La vidéo présente :
-> - 🐳 Démarrage de l'environnement Docker
-> - 🅰️ Lancement du frontend Angular
-> - 🧪 Exécution des tests Cypress
-> - 📊 Génération des rapports Mochawesome
-> - 🔧 Résolution de problèmes courants
-
-*Alternative avec image de démonstration :*
-
-[![Démonstration du Projet](https://via.placeholder.com/800x400/4A90E2/ffffff?text=🎬+Cypress+Demo+▶️)](./Cypress1024.mp4)
-
-📹 **Fichier vidéo :** `Cypress1024.mp4` (situé à la racine du projet)rrage Complet
+# Projet Eco-Bliss-Bath V2
 
 ![Angular](https://img.shields.io/badge/Angular-13.3-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -31,39 +14,7 @@
 ![Git](https://img.shields.io/badge/Git-Version%20Control-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-API%20Doc-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 
-## 📋 Présentation du Projet
-
-Ce projet constitue une plateforme de tests automatisés pour l'application e-commerce **Eco-Bliss-Bath**, spécialisée dans la vente de produits de bain écologiques. Il comprend une API backend développée avec Symfony, une interface frontend Angular, une base de données MariaDB, et une suite complète de tests automatisés avec Cypress.
-
-### 🎯 Objectifs du Projet
-- Automatiser les tests fonctionnels critiques (connexion, panier, API)
-- Effectuer des tests de régression et de smoke testing
-- Générer des rapports de tests détaillés avec Mochawesome
-- Valider la sécurité avec des tests XSS
-
-## � Démonstration
-
-Cliquez sur l'image ci-dessous pour accéder à la page de démonstration interactive de mon projet **ECO-BLISS-BATH** :
-
-<a href="./index.html">
-<img src="https://via.placeholder.com/800x400/121212/ff4081?text=🎬+Eco-Bliss-Bath+Demo+▶️+Page+Interactive" alt="Accéder à la démonstration interactive" width="800">
-</a>
-
-📺 **Page de démonstration :** `index.html` - Interface interactive avec lecteur vidéo intégré
-> **🎥 Cliquez sur le badge ci-dessus pour voir la démonstration complète du projet**
-> 
-> La vidéo présente :
-> - 🐳 Démarrage de l'environnement Docker
-> - 🅰️ Lancement du frontend Angular
-> - 🧪 Exécution des tests Cypress
-> - 📊 Génération des rapports Mochawesome
-> - 🔧 Résolution de problèmes courants
-
-*Vous pouvez également utiliser cette image de démonstration alternative :*
-
-[![Démonstration du Projet](https://via.placeholder.com/800x400/1e3a8a/ffffff?text=🚀+Eco-Bliss-Bath+Demo+📱)](https://youtu.be/VOTRE_VIDEO_ID)
-
-## �🏗️ Architecture Technique
+## 🏗️ Architecture Technique
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -80,23 +31,161 @@ Cliquez sur l'image ci-dessous pour accéder à la page de démonstration intera
 └─────────────────┘    └─────────────────┘              
 ```
 
-## 🛠️ Prérequis Système
+## 📋 À Propos du Projet
 
-Avant de commencer, assurez-vous d'avoir installé les outils suivants :
+Ce projet constitue une plateforme de tests automatisés pour l'application e-commerce **Eco-Bliss-Bath**, spécialisée dans la vente de produits de bain écologiques. Il comprend une API backend développée avec Symfony, une interface frontend Angular, une base de données MariaDB, et une suite complète de tests automatisés avec Cypress.
 
-### Prérequis Obligatoires
-- **Docker Desktop** (version 4.0+)
-- **Node.js** (version 16 ou 18 - **évitez la v21**)
-- **npm** (version 8+)
-- **Git** (version 2.0+)
+### 🎯 Objectifs du Projet
+- Automatiser les tests fonctionnels critiques (connexion, panier, API)
+- Effectuer des tests de régression et de smoke testing
+- Générer des rapports de tests détaillés avec Mochawesome
+- Valider la sécurité avec des tests XSS
 
-### Prérequis Optionnels
-- **Angular CLI** global : `npm install -g @angular/cli`
-- **Cypress** (sera installé automatiquement)
+## 📋 Checklist de Validation
 
-### ⚠️ Notes de Compatibilité
-- **Node.js v21** n'est pas officiellement supportée par Angular 13
-- Utilisez de préférence **Node.js v16 ou v18 LTS**
+Avant de considérer l'environnement comme opérationnel :
+
+- [ ] Conteneurs Docker démarrés et healthy
+- [ ] Frontend Angular accessible sur port 4200 (ou alternatif)
+- [ ] API Backend répond sur `/api/health`
+- [ ] Documentation Swagger accessible
+- [ ] Tests Cypress s'exécutent sans erreur de configuration
+- [ ] Rapports Mochawesome générés correctement
+
+## 🤝 Contribution et Support
+
+Ce projet suit les bonnes pratiques de test et de documentation. Pour toute question ou amélioration :
+
+1. Consultez d'abord cette documentation
+2. Vérifiez les logs des services
+3. Examinez les rapports de tests existants
+4. Proposez des améliorations via les issues GitHub
+
+## 🎬 Démonstration
+
+[![Eco Bliss Bath](photo-eco-bliss.png)](./index.html)
+
+📺 **Page de démonstration :** `index.html` - Interface interactive avec lecteur vidéo intégré
+
+> **🎥 Cliquez sur l'image ci-dessus pour voir la démonstration complète du projet**
+> 
+> La vidéo présente :
+
+> - 🧪 L'exécution des tests Cypress
+
+## 📚 Documentation Complémentaire
+
+### Configuration Cypress
+
+Le fichier `cypress.config.js` contient la configuration principale :
+
+```javascript
+module.exports = defineConfig({
+  env: {
+    apiUrl: "http://localhost:8081"
+  },
+  e2e: {
+    baseUrl: "http://localhost:4200/",
+  }
+});
+```
+
+### Structure des Fixtures
+
+```
+cypress/fixtures/
+├── example.json          # Données d'exemple
+├── profile.json          # Profils utilisateur test
+└── users.json            # Données utilisateurs
+```
+
+### Commandes Personnalisées
+
+Le fichier `cypress/support/commands.js` contient des commandes réutilisables comme `checkAddToCartButtonFromProductIndex()`.
+
+## 🧪 Exécution des Tests
+
+### Prérequis pour les Tests
+**⚠️ Important :** Assurez-vous que tous les services sont démarrés avant d'exécuter les tests :
+- ✅ Docker containers (API + BDD)
+- ✅ Frontend Angular
+- ✅ Port 4200 accessible
+
+### 1. Tests en Mode Graphique (Recommandé pour le Développement)
+
+```bash
+npx cypress open
+```
+
+Interface graphique permettant de :
+- Sélectionner et exécuter des tests individuels
+- Observer l'exécution en temps réel
+- Déboguer les tests interactivement
+
+### 2. Tests en Mode Ligne de Commande
+
+#### 2.1 Exécution Standard
+
+```bash
+npx cypress run
+```
+
+#### 2.2 Exécution avec Rapport Mochawesome
+
+```bash
+# Méthode recommandée
+npm run test:mochawesome
+
+# Ou directement avec npx
+npx cypress run --reporter mochawesome --reporter-options "reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=true"
+```
+
+## 📈 Génération et Consultation des Rapports
+
+### 1. Rapports Mochawesome
+
+Après exécution des tests avec Mochawesome :
+
+**Localisation des rapports :**
+```
+cypress/
+└── reports/
+    └── mochawesome/
+        ├── mochawesome.html          # Rapport principal
+        ├── mochawesome_*.html         # Rapports individuels
+        ├── mochawesome_*.json         # Données JSON
+        └── assets/                    # Ressources CSS/JS
+```
+
+**Ouverture du rapport :**
+```bash
+# Windows
+start cypress/reports/mochawesome/mochawesome.html
+
+# MacOS
+open cypress/reports/mochawesome/mochawesome.html
+
+# Linux
+xdg-open cypress/reports/mochawesome/mochawesome.html
+```
+
+### 2. Captures d'Écran et Vidéos
+
+Les captures d'écran des échecs sont automatiquement sauvegardées dans :
+```
+cypress/
+├── screenshots/           # Captures d'écran des échecs
+└── videos/               # Enregistrements vidéo (mode headless)
+```
+
+### 3. Métriques des Rapports
+
+Les rapports Mochawesome incluent :
+- **Statistiques globales** : Nombre de tests, succès, échecs
+- **Durée d'exécution** : Temps total et par test
+- **Taux de réussite** : Pourcentage de succès
+- **Détails des échecs** : Messages d'erreur et stack traces
+- **Captures d'écran** : Images des échecs
 
 ## 📦 Installation et Configuration
 
@@ -184,113 +273,23 @@ Le fichier `package.json` contient les scripts suivants :
 }
 ```
 
-## 🧪 Exécution des Tests
+## �️ Prérequis Système
 
-### Prérequis pour les Tests
-**⚠️ Important :** Assurez-vous que tous les services sont démarrés avant d'exécuter les tests :
-- ✅ Docker containers (API + BDD)
-- ✅ Frontend Angular
-- ✅ Port 4200 accessible
+Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 
-### 1. Tests en Mode Graphique (Recommandé pour le Développement)
+### Prérequis Obligatoires
+- **Docker Desktop** (version 4.0+)
+- **Node.js** (version 16 ou 18 - **évitez la v21**)
+- **npm** (version 8+)
+- **Git** (version 2.0+)
 
-```bash
-npx cypress open
-```
+### Prérequis Optionnels
+- **Angular CLI** global : `npm install -g @angular/cli`
+- **Cypress** (sera installé automatiquement)
 
-Interface graphique permettant de :
-- Sélectionner et exécuter des tests individuels
-- Observer l'exécution en temps réel
-- Déboguer les tests interactivement
-
-### 2. Tests en Mode Ligne de Commande
-
-#### 2.1 Exécution Standard
-
-```bash
-npx cypress run
-```
-
-#### 2.2 Exécution avec Rapport Mochawesome
-
-```bash
-# Méthode recommandée
-npm run test:mochawesome
-
-# Ou directement avec npx
-npx cypress run --reporter mochawesome --reporter-options "reportDir=cypress/reports/mochawesome,overwrite=false,html=true,json=true"
-```
-
-## 📊 Suites de Tests Disponibles
-
-### Tests Fonctionnels Frontend
-- **`1-login.cy.js`** : Tests de connexion utilisateur
-- **`2-pannier.cy.js`** : Tests du panier d'achat
-- **`3-smokeBoutonPannier.cy.js`** : Tests smoke du bouton panier
-- **`4-smokeConnexion.cy.js`** : Tests smoke de connexion
-
-### Tests de Sécurité
-- **`5-testXss.cy.js`** : Tests de vulnérabilités XSS
-
-### Tests API Backend
-- **`apiHealth.cy.js`** : Tests de santé de l'API
-- **`apiLogin.cy.js`** : Tests d'authentification API
-- **`apiGetProducts.cy.js`** : Tests de récupération des produits
-- **`apiGetOrders.cy.js`** : Tests de récupération des commandes
-- **`apiGetReviews.cy.js`** : Tests de récupération des avis
-- **`apiPostOrders.cy.js`** : Tests de création de commandes
-- **`apiPutOrders.cy.js`** : Tests de modification de commandes
-- **`apiDeleteOrders.cy.js`** : Tests de suppression de commandes
-- **`apiChangeQuantity.cy.js`** : Tests de modification des quantités
-- **`apiPostRegister.cy.js`** : Tests d'inscription
-- **`apiGetInformation.cy.js`** : Tests de récupération d'informations
-
-## 📈 Génération et Consultation des Rapports
-
-### 1. Rapports Mochawesome
-
-Après exécution des tests avec Mochawesome :
-
-**Localisation des rapports :**
-```
-cypress/
-└── reports/
-    └── mochawesome/
-        ├── mochawesome.html          # Rapport principal
-        ├── mochawesome_*.html         # Rapports individuels
-        ├── mochawesome_*.json         # Données JSON
-        └── assets/                    # Ressources CSS/JS
-```
-
-**Ouverture du rapport :**
-```bash
-# Windows
-start cypress/reports/mochawesome/mochawesome.html
-
-# MacOS
-open cypress/reports/mochawesome/mochawesome.html
-
-# Linux
-xdg-open cypress/reports/mochawesome/mochawesome.html
-```
-
-### 2. Captures d'Écran et Vidéos
-
-Les captures d'écran des échecs sont automatiquement sauvegardées dans :
-```
-cypress/
-├── screenshots/           # Captures d'écran des échecs
-└── videos/               # Enregistrements vidéo (mode headless)
-```
-
-### 3. Métriques des Rapports
-
-Les rapports Mochawesome incluent :
-- **Statistiques globales** : Nombre de tests, succès, échecs
-- **Durée d'exécution** : Temps total et par test
-- **Taux de réussite** : Pourcentage de succès
-- **Détails des échecs** : Messages d'erreur et stack traces
-- **Captures d'écran** : Images des échecs
+### ⚠️ Notes de Compatibilité
+- **Node.js v21** n'est pas officiellement supportée par Angular 13
+- Utilisez de préférence **Node.js v16 ou v18 LTS**
 
 ## 🔧 Résolution des Problèmes Courants
 
@@ -338,6 +337,30 @@ npm install --save-dev mochawesome
 # Vérifiez les permissions d'écriture sur le dossier cypress/reports
 ```
 
+## 📊 Suites de Tests Disponibles
+
+### Tests Fonctionnels Frontend
+- **`1-login.cy.js`** : Tests de connexion utilisateur
+- **`2-pannier.cy.js`** : Tests du panier d'achat
+- **`3-smokeBoutonPannier.cy.js`** : Tests smoke du bouton panier
+- **`4-smokeConnexion.cy.js`** : Tests smoke de connexion
+
+### Tests de Sécurité
+- **`5-testXss.cy.js`** : Tests de vulnérabilités XSS
+
+### Tests API Backend
+- **`apiHealth.cy.js`** : Tests de santé de l'API
+- **`apiLogin.cy.js`** : Tests d'authentification API
+- **`apiGetProducts.cy.js`** : Tests de récupération des produits
+- **`apiGetOrders.cy.js`** : Tests de récupération des commandes
+- **`apiGetReviews.cy.js`** : Tests de récupération des avis
+- **`apiPostOrders.cy.js`** : Tests de création de commandes
+- **`apiPutOrders.cy.js`** : Tests de modification de commandes
+- **`apiDeleteOrders.cy.js`** : Tests de suppression de commandes
+- **`apiChangeQuantity.cy.js`** : Tests de modification des quantités
+- **`apiPostRegister.cy.js`** : Tests d'inscription
+- **`apiGetInformation.cy.js`** : Tests de récupération d'informations
+
 ## 🌐 URLs de Référence
 
 | Service | URL | Description |
@@ -346,36 +369,6 @@ npm install --save-dev mochawesome
 | API Backend | `http://localhost:8081` | API REST Symfony |
 | Documentation Swagger | `http://localhost:8081/api/doc` | Documentation interactive API |
 | Health Check | `http://localhost:8081/api/health` | Statut de l'API |
-
-## 📚 Documentation Complémentaire
-
-### Configuration Cypress
-
-Le fichier `cypress.config.js` contient la configuration principale :
-
-```javascript
-module.exports = defineConfig({
-  env: {
-    apiUrl: "http://localhost:8081"
-  },
-  e2e: {
-    baseUrl: "http://localhost:4200/",
-  }
-});
-```
-
-### Structure des Fixtures
-
-```
-cypress/fixtures/
-├── example.json          # Données d'exemple
-├── profile.json          # Profils utilisateur test
-└── users.json            # Données utilisateurs
-```
-
-### Commandes Personnalisées
-
-Le fichier `cypress/support/commands.js` contient des commandes réutilisables comme `checkAddToCartButtonFromProductIndex()`.
 
 ## 🚀 Workflow de Développement Recommandé
 
@@ -399,26 +392,6 @@ Le fichier `cypress/support/commands.js` contient des commandes réutilisables c
    - Consulter les rapports Mochawesome
    - Examiner les captures d'écran
    - Corriger les échecs identifiés
-
-## 📋 Checklist de Validation
-
-Avant de considérer l'environnement comme opérationnel :
-
-- [ ] Conteneurs Docker démarrés et healthy
-- [ ] Frontend Angular accessible sur port 4200 (ou alternatif)
-- [ ] API Backend répond sur `/api/health`
-- [ ] Documentation Swagger accessible
-- [ ] Tests Cypress s'exécutent sans erreur de configuration
-- [ ] Rapports Mochawesome générés correctement
-
-## 🤝 Contribution et Support
-
-Ce projet suit les bonnes pratiques de test et de documentation. Pour toute question ou amélioration :
-
-1. Consultez d'abord cette documentation
-2. Vérifiez les logs des services
-3. Examinez les rapports de tests existants
-4. Proposez des améliorations via les issues GitHub
 
 ---
 

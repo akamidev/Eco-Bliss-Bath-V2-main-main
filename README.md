@@ -1,4 +1,21 @@
-# Projet Eco-Bliss-Bath V2 - Guide de Démarrage Complet
+# Projet Eco-Bliss-Bath V2## 🎬 Démonstration
+
+[![Démonstration Eco-Bliss-Bath](https://img.shields.io/badge/📽️%20Voir%20la%20Démonstration-Vidéo%20Locale-4A90E2?style=for-the-badge&logo=video&logoColor=white)](./Cypress1024.mp4)
+
+> **🎥 Cliquez sur le badge ci-dessus pour voir la démonstration complète du projet**
+> 
+> La vidéo présente :
+> - 🐳 Démarrage de l'environnement Docker
+> - 🅰️ Lancement du frontend Angular
+> - 🧪 Exécution des tests Cypress
+> - 📊 Génération des rapports Mochawesome
+> - 🔧 Résolution de problèmes courants
+
+*Alternative avec image de démonstration :*
+
+[![Démonstration du Projet](https://via.placeholder.com/800x400/4A90E2/ffffff?text=🎬+Cypress+Demo+▶️)](./Cypress1024.mp4)
+
+📹 **Fichier vidéo :** `Cypress1024.mp4` (situé à la racine du projet)rrage Complet
 
 ![Angular](https://img.shields.io/badge/Angular-13.3-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)

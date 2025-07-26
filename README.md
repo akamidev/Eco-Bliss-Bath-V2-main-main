@@ -1,5 +1,19 @@
 # Projet Eco-Bliss-Bath V2 - Guide de Démarrage Complet
 
+![Angular](https://img.shields.io/badge/Angular-13.3-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Symfony](https://img.shields.io/badge/Symfony-API-000000?style=for-the-badge&logo=symfony&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-7.4+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-11.7-003545?style=for-the-badge&logo=mariadb&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+![Cypress](https://img.shields.io/badge/Cypress-14.5-17202C?style=for-the-badge&logo=cypress&logoColor=white)
+![Mochawesome](https://img.shields.io/badge/Mochawesome-Reports-FF6B6B?style=for-the-badge&logo=javascript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-16%2B-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![npm](https://img.shields.io/badge/npm-Package%20Manager-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+![Git](https://img.shields.io/badge/Git-Version%20Control-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-API%20Doc-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+
 ## 📋 Présentation du Projet
 
 Ce projet constitue une plateforme de tests automatisés pour l'application e-commerce **Eco-Bliss-Bath**, spécialisée dans la vente de produits de bain écologiques. Il comprend une API backend développée avec Symfony, une interface frontend Angular, une base de données MariaDB, et une suite complète de tests automatisés avec Cypress.
@@ -10,7 +24,24 @@ Ce projet constitue une plateforme de tests automatisés pour l'application e-co
 - Générer des rapports de tests détaillés avec Mochawesome
 - Valider la sécurité avec des tests XSS
 
-## 🏗️ Architecture Technique
+## � Démonstration
+
+[![Démonstration Eco-Bliss-Bath](https://img.shields.io/badge/📽️%20Voir%20la%20Démonstration-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/VOTRE_VIDEO_ID)
+
+> **🎥 Cliquez sur le badge ci-dessus pour voir la démonstration complète du projet**
+> 
+> La vidéo présente :
+> - 🐳 Démarrage de l'environnement Docker
+> - 🅰️ Lancement du frontend Angular
+> - 🧪 Exécution des tests Cypress
+> - 📊 Génération des rapports Mochawesome
+> - 🔧 Résolution de problèmes courants
+
+*Vous pouvez également utiliser cette image de démonstration alternative :*
+
+[![Démonstration du Projet](https://via.placeholder.com/800x400/1e3a8a/ffffff?text=🚀+Eco-Bliss-Bath+Demo+📱)](https://youtu.be/VOTRE_VIDEO_ID)
+
+## �🏗️ Architecture Technique
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐

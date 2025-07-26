@@ -43,10 +43,11 @@ Ce projet constitue une plateforme de tests automatisés pour l'application e-co
 
 ## � Démonstration
 
-[![Démonstration Eco-Bliss-Bath](https://img.shields.io/badge/📽️%20Voir%20la%20Démonstration-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/VOTRE_VIDEO_ID)
+Cliquez sur l'image ci-dessous pour visionner la vidéo de démonstration de mon projet **ECO-BLISS-BATH** :
 
-> **🎥 Cliquez sur le badge ci-dessus pour voir la démonstration complète du projet**
-> 
+<a href="./Cypress1024.mp4">
+<img src="https://via.placeholder.com/800x400/DD0031/ffffff?text=🎬+Eco-Bliss-Bath+Demo+▶️+Tests+Cypress" alt="Aperçu de la vidéo de démonstration" width="800">
+</a>
 > La vidéo présente :
 > - 🐳 Démarrage de l'environnement Docker
 > - 🅰️ Lancement du frontend Angular

@@ -63,12 +63,12 @@ Ce projet suit les bonnes pratiques de test et de documentation. Pour toute ques
 
 ## 🎬 Démonstration
 
-[![Eco Bliss Bath](photo-eco-bliss.png)](./index.html)
-
-📺 **Page de démonstration :** `index.html` - Interface interactive avec lecteur vidéo intégré
-
 > **🎥 Cliquez sur l'image ci-dessus pour voir la démonstration complète du projet**
 > 
+> <a href="https://akamidev.github.io/Eco-Bliss-Bath-V2-main-main/" target="_blank">
+  <img src="photo-eco-bliss.png" alt="Eco Bliss Bath Demo" width="600">
+</a>
+
 > La vidéo présente :
 
 > - 🧪 L'exécution des tests Cypress

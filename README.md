@@ -65,7 +65,7 @@ Ce projet suit les bonnes pratiques de test et de documentation. Pour toute ques
 
 > **🎥 Cliquez sur l'image ci-dessus pour voir la démonstration complète du projet**
 > 
-> <a href="https://akamidev.github.io/Eco-Bliss-Bath-V2-main-main/" target="_blank">
+<a href="https://akamidev.github.io/Eco-Bliss-Bath-V2-main-main/" target="_blank">
   <img src="photo-eco-bliss.png" alt="Eco Bliss Bath Demo" width="600">
 </a>
 
